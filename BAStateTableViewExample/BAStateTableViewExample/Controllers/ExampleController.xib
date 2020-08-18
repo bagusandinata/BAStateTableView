@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExampleController" customModule="BAStateTableViewExample" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="Rve-58-HXB" id="guD-ge-gvS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rve-58-HXB" customClass="BAStateTableView" customModule="BAStateTableView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="620"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7T-EJ-Frn" customClass="ShadowView" customModule="BAStateTableViewExample" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="664" width="414" height="198"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-aK-Qya">
+                            <rect key="frame" x="16" y="16" width="382" height="166"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zic-8c-fax">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBd-be-cjt" customClass="RoundButton" customModule="BAStateTableViewExample" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                            <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="rB7-3T-wVD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="Loading">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="loadingTapped:" destination="-1" eventType="touchUpInside" id="Fsy-7V-HpV"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tY1-jE-1AE" customClass="RoundButton" customModule="BAStateTableViewExample" customModuleProvider="target">
+                                            <rect key="frame" x="195" y="0.0" width="187" height="50"/>
+                                            <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="hg2-xF-qjC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="Custom Loading">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="customLoadingTapped:" destination="-1" eventType="touchUpInside" id="7lC-Il-yn2"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="snc-dy-Oeo">
+                                    <rect key="frame" x="0.0" y="58" width="382" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clr-ol-PJB" customClass="RoundButton" customModule="BAStateTableViewExample" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                            <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="jAm-ad-yfF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="Skeleton Loading">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="skeletonLoadingTapped:" destination="-1" eventType="touchUpInside" id="8sf-E3-zKJ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wb-7m-bzD" customClass="RoundButton" customModule="BAStateTableViewExample" customModuleProvider="target">
+                                            <rect key="frame" x="195" y="0.0" width="187" height="50"/>
+                                            <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="mLS-iO-cLk"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="Empty Data">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="emptyDataTapped:" destination="-1" eventType="touchUpInside" id="2WB-y8-fkA"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGp-qB-xXY" customClass="RoundButton" customModule="BAStateTableViewExample" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="116" width="382" height="50"/>
+                                    <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="Wiq-Cx-QMJ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <state key="normal" title="Data Available">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="25"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="dataAvailableTapped:" destination="-1" eventType="touchUpInside" id="LtR-G8-0Uq"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="7oG-aK-Qya" secondAttribute="trailing" constant="16" id="D0f-91-Ue0"/>
+                        <constraint firstItem="7oG-aK-Qya" firstAttribute="leading" secondItem="F7T-EJ-Frn" secondAttribute="leading" constant="16" id="MZ2-Du-B5X"/>
+                        <constraint firstAttribute="bottom" secondItem="7oG-aK-Qya" secondAttribute="bottom" constant="16" id="Prw-TF-quK"/>
+                        <constraint firstItem="7oG-aK-Qya" firstAttribute="top" secondItem="F7T-EJ-Frn" secondAttribute="top" constant="16" id="kTx-CV-ChO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Rve-58-HXB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0jk-CT-T44"/>
+                <constraint firstItem="F7T-EJ-Frn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Nbj-ql-dp9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="F7T-EJ-Frn" secondAttribute="trailing" id="eD0-Lc-NNB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="F7T-EJ-Frn" secondAttribute="bottom" id="eWo-Y9-Dyh"/>
+                <constraint firstItem="Rve-58-HXB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pTD-0W-7RO"/>
+                <constraint firstItem="F7T-EJ-Frn" firstAttribute="top" secondItem="Rve-58-HXB" secondAttribute="bottom" id="qm1-J9-fox"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rve-58-HXB" secondAttribute="trailing" id="rF1-01-iIb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="132.58928571428572"/>
+        </view>
+    </objects>
+</document>
