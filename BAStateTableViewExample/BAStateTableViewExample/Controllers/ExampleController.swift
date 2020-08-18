@@ -44,7 +44,7 @@ class ExampleController: UIViewController {
     }
     
     @IBAction func dataAvailableTapped(_ sender: Any) {
-        tableView.setState(.availableData)
+        tableView.setState(.availableData())
     }
 }
 
@@ -65,6 +65,7 @@ extension ExampleController: UITableViewDataSource {
         
         switch (tableView as! BAStateTableView).currentState {
         case .availableData:
+            cell.labelExample.text = "Coba Coba"
             return cell
         default:
             return cell

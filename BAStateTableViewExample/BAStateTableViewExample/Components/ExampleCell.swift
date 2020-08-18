@@ -10,6 +10,8 @@ import UIKit
 
 class ExampleCell: UITableViewCell {
 
+    @IBOutlet weak var labelExample: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -39,3 +39,42 @@ public extension UIView {
     
     func getAllSubviews<T: UIView>() -> [T] { return UIView.getAllSubviews(from: self) as [T] }
 }
+
+
+extension UIColor {
+    public var complementaryColor: UIColor {
+        if #available(iOS 13, tvOS 13, *) {
+            return UIColor { traitCollection in
+                return self.isLight() ? self.darker : self.lighter
+            }
+        } else {
+            return isLight() ? darker : lighter
+        }
+    }
+    
+    public var lighter: UIColor {
+        return adjust(by: 1.35)
+    }
+    
+    public var darker: UIColor {
+        return adjust(by: 0.94)
+    }
+    
+    func isLight() -> Bool {
+        guard let components = cgColor.components,
+            components.count >= 3 else { return false }
+        let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000
+        return !(brightness < 0.5)
+    }
+    
+    func adjust(by percent: CGFloat) -> UIColor {
+        var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+        return UIColor(hue: h, saturation: s, brightness: b * percent, alpha: a)
+    }
+    
+    func makeGradient() -> [CGColor] {
+        return [self.cgColor, self.complementaryColor.cgColor, self.cgColor]
+    }
+}
+
