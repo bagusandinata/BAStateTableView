@@ -25,6 +25,7 @@ public extension CAGradientLayer {
         animGroup.duration = config.animationDuration
         animGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         animGroup.repeatCount = .infinity
+        animGroup.isRemovedOnCompletion = false
         
         add(animGroup, forKey: CAGradientLayer.KSlideAnimationKey)
     }

@@ -15,7 +15,7 @@ class ExampleController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.registerNIB(with: ExampleCell.self)
-            tableView.emptyView = UIView.nib(withType: EmptyView.self)
+            tableView.ba_emptyView = UIView.nib(withType: EmptyView.self)
         }
     }
     
@@ -31,7 +31,7 @@ class ExampleController: UIViewController {
     }
     
     @IBAction func customLoadingTapped(_ sender: Any) {
-        tableView.loadingView = UIView.nib(withType: BasicLoadingView.self)
+        tableView.ba_loadingView = UIView.nib(withType: BasicLoadingView.self)
         tableView.setState(.customLoadingView)
     }
     

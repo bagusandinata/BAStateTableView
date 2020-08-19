@@ -35,8 +35,8 @@ public extension UIView {
     }
 
     private var skeletonableCornerRadius: Float! {
-        get { return ao_get(pkey: &ViewAssociatedKeys.skeletonCornerRadius) as? Float ?? 0.0 }
-        set { ao_set(newValue ?? 0.0, pkey: &ViewAssociatedKeys.skeletonCornerRadius) }
+        get { return ao_get(pkey: &ViewAssociatedKeys.skeletonCornerRadius) as? Float ?? Float(self.layer.cornerRadius) }
+        set { ao_set(newValue ?? Float(self.layer.cornerRadius) , pkey: &ViewAssociatedKeys.skeletonCornerRadius) }
     }
 }
 
