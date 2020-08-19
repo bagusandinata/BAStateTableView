@@ -12,13 +12,13 @@
 		4961784024E99C5500F99817 /* ExampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4961783E24E99C5500F99817 /* ExampleCell.xib */; };
 		4961784124E99C5500F99817 /* ExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961783F24E99C5500F99817 /* ExampleCell.swift */; };
 		4961784424E99C9B00F99817 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961784324E99C9B00F99817 /* Utils.swift */; };
-		4961784924E9BA4600F99817 /* BAStateTableView in Frameworks */ = {isa = PBXBuildFile; productRef = 4961784824E9BA4600F99817 /* BAStateTableView */; };
 		4961784C24EA7DCF00F99817 /* BasicLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961784A24EA7DCF00F99817 /* BasicLoadingView.swift */; };
 		4961784D24EA7DCF00F99817 /* BasicLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4961784B24EA7DCF00F99817 /* BasicLoadingView.xib */; };
 		4961784F24EA82EE00F99817 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961784E24EA82EE00F99817 /* EmptyView.swift */; };
 		4961785124EA82F900F99817 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4961785024EA82F900F99817 /* EmptyView.xib */; };
 		4961785324EB9D8A00F99817 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961785224EB9D8A00F99817 /* ShadowView.swift */; };
 		4961785524EB9EAC00F99817 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961785424EB9EAC00F99817 /* RoundButton.swift */; };
+		4961785B24ED0BE100F99817 /* BAStateTableView in Frameworks */ = {isa = PBXBuildFile; productRef = 4961785A24ED0BE100F99817 /* BAStateTableView */; };
 		49E273F024E6E6FA004CA1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E273EF24E6E6FA004CA1DA /* AppDelegate.swift */; };
 		49E273F224E6E6FA004CA1DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E273F124E6E6FA004CA1DA /* SceneDelegate.swift */; };
 		49E273F424E6E6FA004CA1DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E273F324E6E6FA004CA1DA /* ViewController.swift */; };
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4961784924E9BA4600F99817 /* BAStateTableView in Frameworks */,
+				4961785B24ED0BE100F99817 /* BAStateTableView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +151,7 @@
 			);
 			name = BAStateTableViewExample;
 			packageProductDependencies = (
-				4961784824E9BA4600F99817 /* BAStateTableView */,
+				4961785A24ED0BE100F99817 /* BAStateTableView */,
 			);
 			productName = BAStateTableViewExample;
 			productReference = 49E273EC24E6E6FA004CA1DA /* BAStateTableViewExample.app */;
@@ -419,7 +419,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4961784824E9BA4600F99817 /* BAStateTableView */ = {
+		4961785A24ED0BE100F99817 /* BAStateTableView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BAStateTableView;
 		};
