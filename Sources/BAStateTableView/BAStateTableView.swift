@@ -221,7 +221,7 @@ extension UIView {
         gradientView.gradientLayer.colors = config.colors
         gradientView.startSkeletonAnimation(config: config)
         
-        switch config.transition {
+        switch config.transitionShow {
         case .crossDissolve(let duration):
             UIView.transition(with: self, duration: duration, options: [.transitionCrossDissolve], animations: {
                 self.defaultCornerRadius = self.layer.cornerRadius
@@ -244,7 +244,7 @@ extension UIView {
         subview.forEach { (view) in
             guard let gradientView = view.subviews.first(where: {$0 is GradientView}) as? GradientView else { return }
 
-            switch config.transition {
+            switch config.transitionHide {
             case .crossDissolve(let duration):
                 group.enter()
                 UIView.transition(with: self, duration: duration, options: [.transitionCrossDissolve], animations: {
