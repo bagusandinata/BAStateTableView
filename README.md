@@ -9,7 +9,7 @@ BAStateTableView developed for developers when they get confused in tableview st
 - [x] Skeleton Loading View
 
 ## :calling: Installation
-##### Using Swift Package Manager
+#### Using Swift Package Manager
 Once you have your Swift package set up, adding `BAStateTableView` as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`
 ```
 dependencies: [
