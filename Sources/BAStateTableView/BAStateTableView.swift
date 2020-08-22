@@ -15,7 +15,7 @@ public enum BATableViewState {
     case customLoadingView
     case skeletonLoading
     case emptyData
-    case availableData(reloadData: Bool = true)
+    case availableData
     case unknown
     
     func description() -> String {
@@ -77,30 +77,34 @@ public class BAStateTableView: UITableView, ListSkeletonable {
             guard isSkeletonActive else { return }
             SkeletonLoader.removeLoaderFrom(self, config: config) { [weak self] in
                 self?.skeletonStatus = .off
+                self?.reloadData()
             }
         case .customLoadingView:
             configureStateCustomLoading()
             guard isSkeletonActive else { return }
             SkeletonLoader.removeLoaderFrom(self, config: config) { [weak self] in
                 self?.skeletonStatus = .off
+                self?.reloadData()
             }
         case .emptyData:
             configureStateEmptyView()
             guard isSkeletonActive else { return }
             SkeletonLoader.removeLoaderFrom(self, config: config) { [weak self] in
                 self?.skeletonStatus = .off
+                self?.reloadData()
             }
         case .skeletonLoading:
             reloadData()
             skeletonStatus = .on
             SkeletonLoader.addLoaderTo(self, config: config)
-        case .availableData(let reload):
+        case .availableData:
             if isSkeletonActive {
+                reloadData()
                 SkeletonLoader.removeLoaderFrom(self, config: config) { [weak self] in
                     self?.skeletonStatus = .off
+                    self?.reloadData()
                 }
             } else {
-                guard reload else { return }
                 reloadData()
             }
         default:
@@ -123,7 +127,7 @@ public class BAStateTableView: UITableView, ListSkeletonable {
         loadingIndicator.startAnimating()
         
         loadingView.addSubview(loadingIndicator)
-        self.addSubview(loadingView)
+        self.insertSubview(loadingView, at: Int.max)
         
         NSLayoutConstraint.activate([
             loadingIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -137,7 +141,7 @@ public class BAStateTableView: UITableView, ListSkeletonable {
         customLoadingView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
         customLoadingView.tag = 112
         
-        self.addSubview(customLoadingView)
+        self.insertSubview(customLoadingView, at: Int.max)
     }
     
     private func configureStateEmptyView() {
@@ -146,7 +150,7 @@ public class BAStateTableView: UITableView, ListSkeletonable {
         emptyView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
         emptyView.tag = 113
         
-        self.addSubview(emptyView)
+        self.insertSubview(emptyView, at: Int.max)
     }
     
     //MARK: - REMOVE SUBVIEWS

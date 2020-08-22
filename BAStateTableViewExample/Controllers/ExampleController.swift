@@ -44,7 +44,7 @@ class ExampleController: UIViewController {
     }
     
     @IBAction func dataAvailableTapped(_ sender: Any) {
-        tableView.setState(.availableData())
+        tableView.setState(.availableData)
     }
 }
 
