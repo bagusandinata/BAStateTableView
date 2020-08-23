@@ -215,8 +215,9 @@ extension UIView {
     
     private func insertSkeletonAnimation(config: SkeletonConfig) {
         let gradientView = GradientView(frame: self.bounds)
-        self.skeletonCornerRadius = self.skeletonCornerRadius != 0 ? self.skeletonCornerRadius : Float(self.layer.maskedCorners.rawValue == 15 ? self.layer.cornerRadius : 0)
+        self.skeletonCornerRadius = self.skeletonCornerRadius != 0 ? self.skeletonCornerRadius : Float(self.layer.cornerRadius)
         gradientView.layer.cornerRadius = CGFloat(self.skeletonCornerRadius)
+        gradientView.layer.maskedCorners = CACornerMask(rawValue: self.layer.maskedCorners.rawValue)
         gradientView.clipsToBounds = true
         gradientView.gradientLayer.colors = config.colors
         gradientView.startSkeletonAnimation(config: config)
