@@ -43,8 +43,10 @@ public class BAStateTableView: UITableView, ListSkeletonable {
         didSet {
             switch currentState {
             case .availableData:
+                isUserInteractionEnabled = true
                 isScrollEnabled = true
             default:
+                isUserInteractionEnabled = false
                 isScrollEnabled = false
             }
         }
