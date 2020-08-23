@@ -209,13 +209,13 @@ extension UIView {
                 if v.subviews.contains(where: {$0.isSkeletonable}) {
                     v.ba_addSkeletonLoader(config: config)
                 } else {
-                    v.insertSkeletonAnimation(config: config)
+                    v.createSkeletonAnimation(config: config)
                 }
             }
         }
     }
     
-    private func insertSkeletonAnimation(config: SkeletonConfig) {
+    private func createSkeletonAnimation(config: SkeletonConfig) {
         let gradientView = GradientView(frame: self.bounds)
         self.skeletonCornerRadius = self.skeletonCornerRadius != 0 ? self.skeletonCornerRadius : Float(self.layer.cornerRadius)
         gradientView.layer.cornerRadius = CGFloat(self.skeletonCornerRadius)
@@ -227,17 +227,21 @@ extension UIView {
         switch config.transitionShow {
         case .crossDissolve(let duration):
             UIView.transition(with: self, duration: duration, options: [.transitionCrossDissolve], animations: {
-                self.defaultCornerRadius = self.layer.cornerRadius
-                self.layer.cornerRadius = CGFloat(self.skeletonCornerRadius)
-                self.clipsToBounds = true
-                self.insertSubview(gradientView, at: Int(UInt8.max))
+                self.insertSkeletonAnimation(gradientView: gradientView)
             }, completion: nil)
         default:
-            self.defaultCornerRadius = self.layer.cornerRadius
-            self.layer.cornerRadius = CGFloat(self.skeletonCornerRadius)
-            self.clipsToBounds = true
-            self.insertSubview(gradientView, at: Int(UInt8.max))
+            self.insertSkeletonAnimation(gradientView: gradientView)
         }
+    }
+    
+    private func insertSkeletonAnimation(gradientView: GradientView) {
+        self.defaultCornerRadius = self.layer.cornerRadius
+        self.layer.cornerRadius = CGFloat(self.skeletonCornerRadius)
+        self.clipsToBounds = true
+        if let view = self as? UIButton {
+            view.titleLabel?.alpha = 0
+        }
+        self.insertSubview(gradientView, at: Int(UInt32.max))
     }
     
     fileprivate func ba_removeSkeletonLoader(config: SkeletonConfig, completion: (()->Void)?) {
@@ -251,24 +255,29 @@ extension UIView {
             case .crossDissolve(let duration):
                 group.enter()
                 UIView.transition(with: self, duration: duration, options: [.transitionCrossDissolve], animations: {
-                    gradientView.stopSkeletonAnimation()
-                    gradientView.removeFromSuperview()
+                    self.removeSkeletonAnimation(view: view, gradientView: gradientView)
                 }, completion: { (_) in
-                    view.layer.cornerRadius = CGFloat(view.defaultCornerRadius)
-                    view.clipsToBounds = true
                     group.leave()
                 })
             default:
-                gradientView.stopSkeletonAnimation()
-                gradientView.removeFromSuperview()
-                view.layer.cornerRadius = CGFloat(view.defaultCornerRadius)
-                view.clipsToBounds = true
+                
+                removeSkeletonAnimation(view: view, gradientView: gradientView)
             }
         }
         
         group.notify(queue: .main) {
             completion?()
         }
+    }
+    
+    private func removeSkeletonAnimation(view: UIView, gradientView: GradientView) {
+        gradientView.stopSkeletonAnimation()
+        gradientView.removeFromSuperview()
+        view.layer.cornerRadius = CGFloat(view.defaultCornerRadius)
+        view.clipsToBounds = true
+        
+        guard let view = view as? UIButton else { return }
+        view.titleLabel?.alpha = 1
     }
     
     private class func getAllSubviewsSkeletonable<T: UIView>(from parentView: UIView) -> [T] {
